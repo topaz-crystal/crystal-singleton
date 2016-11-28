@@ -1,0 +1,10 @@
+name: singleton
+version: 0.0.1
+
+authors:
+  - taicsuzu <taicsuzu@yahoo-corp.jp>
+
+
+crystal: 0.19.4
+
+license: MIT
