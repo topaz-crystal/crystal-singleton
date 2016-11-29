@@ -3,24 +3,29 @@ require "./singleton/*"
 class SingleTon
   
   macro st_init(*props)
+    
     @@instance = new
+    
     private def initialize
     end
   end
-
-  macro st_property(name)
-    property {{name}}
-  end
-
-  macro st_properties(*props)
+  
+  macro st_fields(*props)
+    
     st_init
+    
     {% for prop in props %}
-      st_property {{prop}}
+      {% if prop[:st_type] == :property %}
+        property {{prop[:name].id}} : {{prop[:type].id}}|Nil = {{prop[:df]}}
+      {% elsif prop[:st_type] == :getter %}
+        getter {{prop[:name].id}} : {{prop[:type].id}}|Nil = {{prop[:df]}}
+      {% elsif prop[:st_type] == :setter %}
+        setter {{prop[:name].id}} : {{prop[:type].id}}|Nil = {{prop[:df]}}
+      {% end %}
     {% end %}
   end
 
   def self.get_instance
     @@instance
   end
-  
 end
