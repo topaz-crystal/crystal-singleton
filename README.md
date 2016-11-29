@@ -42,10 +42,6 @@ test.prop3 = 2.0
 
 **Note that parent class of each singleton is Single'T'on, not Single't'on**
 
-## Development
-
-TODO: Write development instructions here
-
 ## Contributing
 
 1. Fork it ( https://github.com/tbrand/crystal-singleton/fork )
