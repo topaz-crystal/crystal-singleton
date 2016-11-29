@@ -16,11 +16,11 @@ class SingleTon
     
     {% for prop in props %}
       {% if prop[:st_type] == :property %}
-        property {{prop[:name].id}} : {{prop[:type].id}}|Nil = {{prop[:df]}}
+        property {{prop[:name].id}} : {{prop[:type].id}} = {{prop[:df]}}
       {% elsif prop[:st_type] == :getter %}
-        getter {{prop[:name].id}} : {{prop[:type].id}}|Nil = {{prop[:df]}}
+        getter {{prop[:name].id}} : {{prop[:type].id}} = {{prop[:df]}}
       {% elsif prop[:st_type] == :setter %}
-        setter {{prop[:name].id}} : {{prop[:type].id}}|Nil = {{prop[:df]}}
+        setter {{prop[:name].id}} : {{prop[:type].id}} = {{prop[:df]}}
       {% end %}
     {% end %}
   end
